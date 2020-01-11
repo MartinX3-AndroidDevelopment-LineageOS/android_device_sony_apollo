@@ -12,15 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-PRODUCT_MAKEFILES := \
-	$(LOCAL_DIR)/lineage_apollo.mk \
-	$(LOCAL_DIR)/lineage_apollo_DSDS.mk
+# Inherit device parts
+$(call inherit-product, device/sony/apollo/aosp_h8324.mk)
 
+# Override Product Name
+PRODUCT_NAME := lineage_apollo_DSDS
 
-COMMON_LUNCH_CHOICES += \
-    lineage_apollo-eng \
-    lineage_apollo-userdebug \
-    lineage_apollo-user \
-    lineage_apollo_DSDS-eng \
-    lineage_apollo_DSDS-userdebug \
-    lineage_apollo_DSDS-user
+# Assert
+TARGET_OTA_ASSERT_DEVICE := apollo
